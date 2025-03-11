@@ -1,36 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { authSchema } from "@/schemas/authSchema"; // ✅ Importación correcta
 import { registerUser } from "@/services/auth";
 import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const success = await registerUser(email, password);
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(authSchema),
+  });
+
+  const onSubmit = async (data: any) => {
+    const success = await registerUser(data.email, data.password);
     if (success) router.push("/login");
   };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-2xl font-bold">Registro</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4 bg-gray-100 rounded shadow-md">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 p-4 bg-gray-100 rounded shadow-md">
         <input 
           type="email" 
           placeholder="Email" 
+          {...register("email")}
           className="p-2 border rounded"
-          onChange={(e) => setEmail(e.target.value)} 
         />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+
         <input 
           type="password" 
           placeholder="Contraseña" 
+          {...register("password")}
           className="p-2 border rounded"
-          onChange={(e) => setPassword(e.target.value)} 
         />
+        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+
         <button 
           type="submit" 
           className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
@@ -40,4 +47,3 @@ export default function RegisterPage() {
     </div>
   );
 }
-
