@@ -1,3 +1,39 @@
+
+Ventajas de Next.js
+Se consigue un rendimiento mejor
+mejor SEO
+Facilidad para integrar APIs
+Simplicidad en su desarrollo
+menos codigo
+fexibilidad
+Desarrollo Full Stack con API Routes
+
+
+Desventajas de Next.js
+Para aplicaciones complejas no e slo mejor pero no es nuestro caso
+No hay una estructua por defecto
+Es necesisario un backend para su funcionamiento
+
+Después de analizar las ventajas y desventajas, Next.js es la mejor opción para este proyecto porque:
+✔️ Necesitamos SEO optimizado para que los datos de ingresos/gastos sean indexables.
+ Facilita la integración con APIs como Supabase, sin necesidad de configurar módulos adicionales.
+ Permite una carga rápida de los datos con getServerSideProps o fetch.
+ Menos código y mayor productividad, lo que hace que el desarrollo sea más rápido.
+
+/La selección de next se debe a na cesidad de rapides y optimización del SEO para que el usuio disfrute de su experiencia con la web
+
+//Next.js es más ligero para consumir APIs externas (REST o GraphQL) con Axios.
+
+//No es necesario tanto modulo.
+//Previamente para practicas anteriores también hice uso de next por lo que me resulta más comodo trabajar en un entorno que conozco mejor
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

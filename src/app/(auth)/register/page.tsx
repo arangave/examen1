@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { authSchema } from "@/schemas/authSchema"; // ✅ Importación correcta
+import { authSchema } from "@/schemas/authSchema";
 import { registerUser } from "@/services/auth";
 import { useRouter } from "next/navigation";
 
